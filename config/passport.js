@@ -128,6 +128,7 @@ module.exports = function () {
 					// set information
 					req.user.fitbit.id = profile.id;
 					req.user.fitbit.token = token;
+					req.user.fitbit.tokenSecret = tokenSecret;
 					req.user.fitbit.name = profile.displayName;
 					// save user data
 					req.user.save(function (err) {

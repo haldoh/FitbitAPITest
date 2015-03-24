@@ -62,6 +62,9 @@ router.get('/auth/fitbit/callback', passport.authenticate('fitbit', { failureRed
 /* Remove Fitbit association for the logged user */
 router.get('/removefitbit', users.isLoggedIn, users.removeFitbit);
 
+/* GET fitbit profile */
+router.get('/fitbitprofile', users.isLoggedIn, users.getFitbitProfile);
+
 /* logout */
 router.get('/logout', users.isLoggedIn, users.logout);
 

@@ -10,6 +10,9 @@
 
 // requires
 var User = require('mongoose').model('User');
+var request = require('request');
+
+var baseFitbitURL = 'https://api.fitbit.com';
 
 // Check if a user is logged in before using certain routes
 module.exports.isLoggedIn = function (req, res, next) {
@@ -21,6 +24,20 @@ module.exports.isLoggedIn = function (req, res, next) {
 module.exports.isNotLoggedIn = function (req, res, next) {
 	if (!req.isAuthenticated()) { return next(); }
 	res.redirect('/');
+};
+
+// Get this user's fitbit profile
+module.exports.getFitbitProfile = function (req, res, next) {
+	var oauth = {
+		consumer_key: 'c2e4152b68af4d4b9ba41134275cdff2',
+		consumer_secret: 'ff3cc073d9ce47c38b73f9c1fda41bf8',
+		token: req.user.fitbit.token,
+		token_secret: req.user.fitbit.tokenSecret
+	},
+		url = baseFitbitURL + '/1/user/-/profile.json';
+	request.get({url: url, oauth: oauth, json: true}, function (e, resp, data) {
+		res.send(JSON.stringify(data));
+	});
 };
 
 // Remove associated fitbit data from the user

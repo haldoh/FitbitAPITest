@@ -13,15 +13,16 @@ var bcrypt   = require('bcrypt-nodejs');
 
 var UserSchema = new mongoose.Schema({
 	local:	{
-		email:		String,
-		name:			String,
-		surname:	String,
-		password: String
+		email:				String,
+		name:					String,
+		surname:			String,
+		password:			String
 	},
 	fitbit:	{
-		id:				String,
-		token:		String,
-		name:			String
+		id:						String,
+		token:				String,
+		tokenSecret:	String,
+		name:					String
 	}
 	
 });
