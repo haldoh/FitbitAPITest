@@ -111,7 +111,7 @@ module.exports = function () {
 	passport.use(new FitbitStrategy({
 		consumerKey: FITBIT_CONSUMER_KEY,
 		consumerSecret: FITBIT_CONSUMER_SECRET,
-		callbackURL: "http://192.168.0.9:3000/users/auth/fitbit/callback",
+		callbackURL: config.callbackURL,
 		passReqToCallback: true
 	},
 		function (req, token, tokenSecret, profile, done) {
