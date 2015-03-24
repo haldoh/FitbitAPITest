@@ -15,8 +15,7 @@ var config = {
 		mode: 'local',
 		port: 5000,
 		securePort: 5001,
-		adminName: 'admin',
-		adminPwd: 'password',
+		callbackURL: 'http://192.168.0.9:3000/users/auth/fitbit/callback',
 		mongo: {
 			host: 'localhost',
 			port: 27017,
@@ -29,13 +28,12 @@ var config = {
 		mode: 'heroku',
 		port: process.env.PORT,
 		securePort: process.env.PORT,
-		adminName: 'herokuadmin',
-		adminPwd: 'heroku_adm_pwd',
+		callbackURL: 'https://fitbitapitest.herokuapp.com/users/auth/fitbit/callback',
 		mongo: {
-			host: process.env.MUSER + ":" + process.env.MPWD + "@ds029901.mongolab.com",
-			port: 29901,
-			name: 'heroku_app32051551',
-			sessionName: 'heroku_app32051551'
+			host: process.env.MUSER + ":" + process.env.MPWD + "@ds039291.mongolab.com",
+			port: 39291,
+			name: 'heroku_app35094329',
+			sessionName: 'heroku_app35094329'
 		}
 	},
 	

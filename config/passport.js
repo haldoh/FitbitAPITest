@@ -16,6 +16,11 @@ var util = require('util');
 var LocalStrategy = require('passport-local').Strategy;
 var FitbitStrategy = require('passport-fitbit').Strategy;
 
+// TODO remove this
+var env = process.env.NODE_ENV || 'local';
+var config = require('./config.js')(env);
+
+// And hide this
 var FITBIT_CONSUMER_KEY = "c2e4152b68af4d4b9ba41134275cdff2";
 var FITBIT_CONSUMER_SECRET = "ff3cc073d9ce47c38b73f9c1fda41bf8";
 
