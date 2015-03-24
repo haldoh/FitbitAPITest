@@ -2,5 +2,12 @@ extends layout
 
 block content
 
-	p ID: #{user.id}
-	p Name: #{user.displayName}
+	p
+		h3 User: #{user.local.name} #{user.local.surname}
+		h4 Email: #{user.local.email}
+	if (user.fitbit.id)
+		p Fitbit ID: #{user.fitbit.id}
+		p Name: #{user.fitbit.name}
+		a(href='/users/removefitbit') Remove link to this Fitbit account
+	else
+		a(href='/users/auth/fitbit') Link Fitbit account

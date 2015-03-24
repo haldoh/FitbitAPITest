@@ -1,19 +1,51 @@
 doctype html
+//
+	* Copyright (C) 2015 Aldo Ambrosioni
+	* ambrosioni.ict@gmail.com
+	* 
+	* This file is part of the FitbitAPITest project
 html
 	head
-		title= FitbitAPITest
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+
+		if (title)
+			title #{title} - p2peers
+		else
+			title p2peers
+
+		// AngularJS
+		script(type='text/javascript' src='/javascripts/lib/angular/angular.min.js')
+		// AngularJS ui router
+		script(type='text/javascript' src='/javascripts/lib/angular-ui-router.min.js')
+		
+		// Bootstrap 
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+		// Custom CSS 
 		link(rel='stylesheet', href='/stylesheets/style.css')
+		
 	body
 		
 		if(!user)
 			p
 				a(href="/") Home 
-				a(href="/login") Log In
+				a(href="/users/login") Log In
+				a(href="/users/signup") Signup
 		else
 			p
 				a(href="/") Home 
-				a(href="/account") Account 
-				a(href="/logout") Log Out
+				a(href="/users/account") Account 
+				a(href="/users/logout") Log Out
 		
+		// Page content
 		block content
+
+		// jQuery
+		script(type='text/javascript' src='/javascripts/lib/jquery-2.1.1.min.js')
+		// Bootstrap 
+		script(type='text/javascript' src='/bootstrap/js/bootstrap.min.js')
+				
+		// Page specific scripts
+		block bottomscripts
 		

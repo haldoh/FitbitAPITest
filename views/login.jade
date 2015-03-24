@@ -2,4 +2,25 @@ extends layout
 
 block content
 
-	a(href="/auth/fitbit") Login with Fitbit
+	.container
+		h2.text-center Login
+		br
+		form.form-horizontal(role='form', action="/users/login", method="post")
+			if (errors && errors.length)
+				each error in errors
+					.alert.alert-danger(role='alert')
+						span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+						span.sr-only Error:
+						|  #{error}
+			.form-group
+				label.col-sm-2.control-label(for='email') Email
+				.col-sm-10
+					input.form-control(type='text', name="email", id="email", placeholder='Email')
+			.form-group
+				label.col-sm-2.control-label(for='password') Password
+				.col-sm-10
+					input.form-control(type='password', name="password", id="password", placeholder='Password')
+			p.text-center
+				button.btn.btn-default.add-btn(type='submit') Login
+				a(href='/')
+					button.btn.btn-default.add-btn(type="button") Cancel
